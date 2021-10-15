@@ -1,0 +1,55 @@
+/* 公共样式文件 */
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-10-14 
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-10-14
+ */
+/* 屏幕宽度在340px ~ 410px时的样式：样式2，基准尺寸使用20px */
+html{
+    font-size: 20px;
+    height: 100%;
+}
+
+/* 屏幕宽度小于340px时的样式：样式1，基准尺寸使用18px */
+@media(max-width: 340px){
+    html{
+        font-size: 18px;
+    }
+}
+
+/* 屏幕宽度在340px ~ 410px时的样式 将此部分样式作为基础样式拿到外部*/
+/* @media(min-width: 340px) and (max-width:410px){
+
+} */
+
+/* 屏幕宽度大于410px时的样式：样式3，基准尺寸使用22px */
+@media(min-width: 410px){
+    html{
+        font-size: 22px;
+    }
+}
+
+/* body默认样式 */
+body{
+    max-width: 640px;
+    height: 100%;
+    /* 当屏幕超宽时，保证内容区能水平居中。 */
+    margin: 0 auto;
+    background: #f8f8f8;
+    /* 横轴方向如果出现了超宽的元素，设置为隐藏，这样就能防止在X轴方向上出现滚动条。 */
+    overflow-x: hidden;
+    /* 在 ios 系统上，可以让滚动元素带有弹性，滚动的更顺滑。注意这条样式只是 webkit 内核提供的，只在基于 webkit 内核的浏览器上有效。 */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 页面蒙版 */
+.mask{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 300;
+}

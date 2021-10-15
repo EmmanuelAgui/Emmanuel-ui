@@ -1,0 +1,42 @@
+/* 底部导航栏 */
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-10-14 
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-10-14
+ */
+.navbar{
+    display: flex;
+    position: fixed;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 100%;
+    max-width: 640px;
+    height: 2.5rem;
+    border-top: 1px solid #ddd;
+    z-index: 200;
+    background: #f8f8f8;
+    text-align: center;
+}
+
+/* 导航栏目 */
+/* 在.navbar-item 上设置了 “flex: 1;” 和字体颜色，使得各个导航区域平分导航条
+（这里没有在.navbar-item 父元素上设置字体颜色，是为了可以覆盖链接自带的样式）； */
+.navbar > .navbar-item{
+    flex: 1;
+    color: #808080;
+}
+/* 被选中的样式 */
+.navbar > .navbar-item.active{
+    color: #09BB07;
+}
+/* 导航图标 */
+.navbar > .navbar-item > .icon{
+    padding: .3rem 0 .1rem;
+    font-size: 1.1rem;
+}
+/* 导航名称 */
+.navbar > .navbar-item > .name{
+    display: block;
+    font-size: .5rem;
+}

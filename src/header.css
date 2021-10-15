@@ -1,0 +1,56 @@
+/* 头部导航条 */
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-10-14 
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-10-14
+ */
+
+ /* 
+将 tt-header 改成弹性容器，并添加背景色。
+使 .left、.title 和 .right 的元素在自己的容器里都水平竖直居中。
+对 .title 部分做文本自动截断处理
+对 .left 和 .right 部分指定宽度，且不能伸缩。 
+*/
+ .header{
+     display: flex;
+     position: fixed;
+     /* box-sizing: border-box; 使用了怪异盒模型，是因为使用了border来分隔标题栏和内容区，这样标题栏的高度就是“height: 2.3rem;”所指定的高度了。 */
+     box-sizing: border-box;
+     width: 100%;
+     /* max-width: 640px; 和 body 统一，限定了最大宽度就是 640px，不限定的话导航条的宽度就变成了整个屏幕的宽度，在超宽屏幕下会造成错乱。 */
+     max-width: 640px;
+     height: 2.3rem;
+     /* “line-height: 2.3rem;” 配合上之前的 “height: 2.3rem;” 就可以使单行文本水平居中，通过在父元素上设置，三个子元素都可以继承的到 */
+     line-height: 2.3rem;
+     text-align: center;
+     /* 这里面没有使用“left: 0;”来把标题栏放在窗口最左面，这是因为如果不给它限定水平方向位置，那么它起始的位置就时它脱离文档流之前的位置，也就是现在 body 的起始位置。
+     这样在超宽屏幕下也能保证标题栏也在 body 的左上角，而不是屏幕的左上角。 */
+     top: 0;
+     z-index: 200;
+     /* header 使用的怪异盒模型，但在做垂直居中的时候 height 和 line-height 使用的是同样的竖值，把 border-bottom 的宽度忽略也没问题。 */
+     border-bottom: 1px solid #ddd;
+     background: #f8f8f8;
+ }
+
+ /* 左侧功能区 */
+ .header > .left{
+     flex-basis: 3rem;
+     text-align: center;
+     flex-shrink: 0;
+ }
+
+/* 中间标题部分 */
+.header > .title{
+    flex-grow: 1;
+    /* “overflow: hidden; white-space: nowrap; text-overflow: ellipsis;” 这三条语句组合使用，就可以对单行超长文本做截断，并且在截断的地方自动补充省略号。 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 右侧功能区 */
+.header > .right{
+    flex-basis: 3rem;
+    flex-shrink: 0;
+}

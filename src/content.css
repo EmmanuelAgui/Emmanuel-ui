@@ -1,0 +1,68 @@
+/* 内容区 */
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-10-15 
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-10-15
+ */
+
+ .content{
+     /* 使用怪异盒模型，是为了能正确处理后面的padding。 */
+     box-sizing: border-box;
+     /* 内容区设置为相对定位，是为了让子元素在做绝对定位的时候以它为参照物。 */
+     position: relative;
+     height: 100%;
+     /* 内容区高度超出屏幕高度的时候，自动出现滚动条。 */
+     overflow-y: auto;
+     /* 内容区上方用内边距让出标题栏的高度，这样内容显示的位置正好在标题栏的下方，不会被标题栏遮住。 */
+     /* padding-top: 2.3rem; */
+     /* 内容区下方用内边距让出导航栏的高度，滚动条拉到最下面时正好能把内容显示完整。 */
+     /* padding-bottom: 2.5rem; */
+ }
+
+ /* 当标题栏和导航条不显示时，内容区能自动适配。
+ 如果按着刚才的样式，在没有标题栏或导航条的时候，响应的位置就是一片由 padding 撑出来的空白。
+ 为了自适应，我们可以把刚才的代码做个调整，改成如下的样子 */
+
+ /*默认的情况下内容区是没有上下内边距的  */
+ /* 当页面有了标题栏的时候，再用兄弟选择器给 content 元素设置上“padding-top: 2.3rem;” */
+ .header ~ .content{
+     padding-top: 2.3rem;
+ }
+/* 在有导航栏的时候，也用兄弟选择器给内容区设置上“padding-bottom: 2.5rem;” */
+ .navbar ~ .content{
+     padding-bottom: 2.5rem;
+ }
+
+ /* 内容分区 -- Panel 面板 */
+/* Panel 标题 */
+.content .panel-title{
+    height: 1.8rem;
+    line-height: 1.8rem;
+    padding-left: 1rem;
+    color: #aaa;
+    background: #fff;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    font-weight: normal;
+}
+/* 标题导航 */
+.content .panel-title > .panel-link{
+    float: right;
+    margin-right: 1rem;
+    color: #aaa;
+}
+/* Panel 内容区 */
+.content .panel-body{
+    position: relative;
+    margin-bottom: .6rem;
+    padding: .6rem 1rem;
+    background: #fff;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+/* 可手动设置内容区是否有内边距 */
+.content .panel-body.no-padding{
+    padding: 0;
+}
