@@ -1,0 +1,138 @@
+/* 表单元素组件样式 */
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-10-18 
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-10-18
+ */
+
+/* 表单的单行容器 */
+
+.form-item{
+    display: flex;
+    /* 给每行容器加一个“position: relative;”属性，这样容器里需要绝对定位的元素可以以它为参考系。 */
+    position: relative;
+    /* 每行的左边有个内边距，可以和标题对齐 */
+    padding-left: 1rem;
+    /* 先给每个元素都加一个下边框，然后再用 last-child 选择器把最后一个元素的下边框单独去掉就行了 */
+    border-bottom: 1px solid #eee;
+}
+/* 去掉最后一行的下边框 */
+.form-item:last-child{
+    border-bottom: none;
+}
+
+/* 表单标签 */
+.form-item > .form-label{
+    display: block;
+    /* 标签是定宽，内容区要求撑满剩余的空间 */
+    width: 3.5rem;
+    font-size: .8rem;
+    color: #666;
+    height: 2rem;
+    line-height: 2rem;
+}
+/* 表单内容区 */
+.form-item > .form-body{
+    flex: 1;
+}
+
+/* 输入框 */
+.form-item > .form-body > .input{
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    /* 在这里还有一个小的地方要注意，input 这个元素比较特殊，它会去继承父元素的字体样式，
+    但会被浏览器给的默认样式覆盖，这些默认样式的优先级要高于继承来的样式。
+    所以我们在设置input元素的字体样式时，需要直接给input设置样式，而不要依靠样式的继承。 */
+    font-size: .8rem;
+    border: none;
+}
+
+/* 表单中的清空按钮 */
+.form-item > .form-body > .input-reset{
+    position: absolute;
+    width: .8rem;
+    height: .8rem;
+    line-height: .8rem;
+    /* 这里使用了一种新的竖直居中的方法，依靠“top:50%;”找到竖直方向的初始点，
+    然后再依靠使用负值的margin把元素调整到竖直居中的位置。 */
+    top: 50%;
+    margin-top: -.4rem;
+    right: 1rem;
+    font-size: .6rem;
+    background: #aaa;
+    color: #fff;
+    border-radius: 50%;
+}
+
+/* 表单中的错误提示按钮 */
+.form-item > .form-body > .input-warning{
+    position: absolute;
+    width: .8rem;
+    height: .8rem;
+    line-height: .8rem;
+    top: 50%;
+    margin-top: -.4rem;
+    right: 1rem;
+    font-size: .6rem;
+    border-radius: 50%;
+    color: red;
+    border: 1px solid red;
+}
+
+/* 自定义单选 */
+.form-item > .radio{
+    flex: 1;
+    font-size: .8rem;
+    line-height: 2rem;
+}
+/* 未选中状态的图标 */
+.form-item > .radio > .radio-icon{
+    margin-right: .5rem;
+    color: #09BB07;
+    visibility: hidden;
+}
+/* 选中状态的图标 */
+/* 单选的图标是通过radio.checked”这个交集选择器来判断的，当选中时只需要在tt-radio上添加“checked”这个类。 */
+.form-item > .radio.checked > .radio-icon{
+    visibility: visible;
+}
+/* 隐藏的radio类型的input */
+.form-item > .radio > .radio-input{
+    position: absolute;
+    left: -999rem;
+}
+
+/* 自定义多选 */
+.form-item > .check{
+    flex: 1;
+    font-size: .8rem;
+    line-height: 2rem;
+}
+/* 未选中时的图标 */
+.form-item > .check > .check-icon{
+    margin-right: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    color: rgba(0, 0, 0, 0);
+    font-size: .6rem;
+    width: .8rem;
+    height: .8rem;
+    line-height: .8rem;
+}
+/* 选中时的图标 */
+/* check.checked”这个交集选择器来判断的，当选中时只需要在tt-radio上添加“checked”这个类。 */
+.form-item > .check.checked > .check-icon{
+    background: #09BB07;
+    color: #fff;
+    border-color: rgba(0, 0, 0, 0);
+}
+/* 隐藏的check类型的input */
+.form-item > .check > .check-input{
+    /* 隐藏最后input元素的时候，使用了一个绝对定位，把这个元素移到了视野以外。
+    这也是一种比较常见的隐藏元素的方式，这种隐藏方式一般不会出错，
+    而 “display:none;” 在一些浏览器上容易出问题，比如会出现显示效果不对或者和 JS 的交互出问题等现象。 */
+    position: absolute;
+    left: -999rem;
+}

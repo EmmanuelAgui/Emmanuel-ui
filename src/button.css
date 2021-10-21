@@ -1,0 +1,66 @@
+/* 按钮样式 */
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-10-18 
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-10-18
+ */
+
+/* 按钮默认样式 */
+.btn{
+    display: block;
+    position: relative;
+    width: 10rem;
+    margin: auto;
+    padding: .5rem 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-size: .7rem;
+    text-align: center;
+    color: #000;
+    border-radius: 5px;
+    /* 文本超出省略 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* “user-select:none;” 表示用户不能对按钮的内容进行选中，
+    防止因用户按住按钮太久而导致出现文本选择的选项。 */
+    user-select: none;
+}
+
+/* 定制主操作按钮样式 */
+.btn.btn-primary{
+    background-color: #1AAD19;
+    color: #fff;
+}
+/* 定制警示按钮样式 */
+.btn.btn-warning{
+    background-color: #E64340;
+    color: #fff;
+}
+/* 定制不可使用按钮样式 */
+/* 在一些设计中，有些是非常不希望用户点击但又不得不加的按钮，也会使用这种不可用按钮。
+比如取消订单、删除应用和某些确认操作里的取消按钮等，通常使用这种手段（也可以说是技巧）来阻碍用户进行对产品不利的操作。 */
+.btn.btn-disabled{
+    background-color: #F7F7F7;
+    color: #999;
+    opacity: .6;
+}
+
+
+/* 大按钮 */
+.btn.btn-large{
+    width: 100%;
+    font-size: .9rem;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+
+/* 小按钮 */
+.btn.btn-small{
+    display: inline-block;
+    width: 3rem;
+    padding: .2rem 0;
+    font-size: .7rem;
+}

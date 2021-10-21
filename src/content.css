@@ -36,27 +36,22 @@
 
  /* 内容分区 -- Panel 面板 */
 /* Panel 标题 */
+/* 我们这里用了后代选择器，而不是子代选择器，是因为Panel不一定直接放在 .tt-content 下。 */
 .content .panel-title{
     height: 1.8rem;
     line-height: 1.8rem;
     padding-left: 1rem;
     color: #aaa;
-    background: #fff;
     border-top: 1px solid #eee;
     font-size: 14px;
     font-weight: normal;
 }
-/* 标题导航 */
-.content .panel-title > .panel-link{
-    float: right;
-    margin-right: 1rem;
-    color: #aaa;
-}
-/* Panel 内容区 */
+
+/* Panel内容区 */
 .content .panel-body{
     position: relative;
     margin-bottom: .6rem;
-    padding: .6rem 1rem;
+    padding:.6rem 1rem;
     background: #fff;
     overflow: hidden;
     border-top: 1px solid #eee;

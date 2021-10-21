@@ -19,3 +19,9 @@
 @import './content.css';
 /* 导航栏样式 */
 @import './navbar.css';
+/* 表单样式 */
+@import './input.css';
+/* 按钮样式 */
+@import './button.css';
+/* 模态框组件样式 */
+@import './modal.css';
