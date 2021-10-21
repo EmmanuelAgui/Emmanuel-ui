@@ -1,0 +1,157 @@
+/* 搜索框组件样式 */
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-10-21 
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-10-21
+ */
+/* 搜索框 */
+/* 设计思路 */
+/* 搜索组件的容器一共有两个状态，分为输入状态和非输入状态。
+我们使用“on-focus”这个类来区分搜索框是不是在输入状态。
+在非输入状态下，搜索组件就是文档流里一个普通的盒子，可以随着页面进行滚动，
+而在输入状态下搜索组件需要覆盖住整个页面，所以我们要给 .tt-search 如下的样式：*/
+ .search{
+     /* 因为这个组件的容器可能会有使用固定定位的情况，所以和之前实现标题栏一样，我们给它限制住最大宽度，
+     并且使用“margin: 0 auto;”让它水平居中。 */
+    max-width: 640px;
+    margin: 0 auto;
+    background: #f8f8f8;
+ }
+
+ /* 在输入状态下，希望 .tt-search 容器遮盖住整个内容区（ .tt-content 覆盖的区域）。 
+ 这里我们可以使用固定定位来处理输入状态下的遮盖问题，和我们之前讲全屏遮罩时用到的方法是一样的*/
+
+ /* 搜索状态中，覆盖内容区 */
+ .search.on-focus{
+     position: fixed;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     overflow-y: auto;
+ }
+ /* 通过兄弟选择器处理了有标题栏和导航栏的情况。 */
+ /* 处理有标题栏的情况 */
+ .header ~ .content .search.on-focus{
+     top: 2.3rem;
+ }
+ /* 处理有导航栏的情况 */
+ .navbar ~ .content .search.on-focus{
+     bottom: 2.5rem;
+ }
+
+ /* 搜索栏中的表单 */
+ .search > .search-form{
+     display: flex;
+     height: 2.3rem;
+     align-items: center;
+ }
+
+ /* 输入框的容器 */
+ .search > .search-form > .search-input-wrap{
+     flex: 1;
+     position: relative;
+     /* 没有取消按钮的时候，.tt-search-input-wrap 容器是撑开全宽，然后使用左右的 padding 来保证里面的输入框可以在左右留下一点空闲。 */
+     padding: 0 .5rem;
+ }
+
+ /* 取消按钮 */
+ .search > .search-form > .search-cancel{
+     /* 取消按钮使用固定的 2.2rem 的宽度，不做拉伸和收缩。 */
+     flex: 0 0 2.2rem;
+     /* 有取消按钮的时候，为了保证取消按钮在空闲区域是居中的，
+     所以会给取消按钮一个“padding-right: .5rem;”来和 .tt-search-input-wrap 右边留下的空间对称，
+     这样取消按钮只要是文本居中就可以了。 */
+     padding-right: .5rem;
+     text-align: center;
+     font-size: .7rem;
+     /* 默认情况下是隐藏的，只有在搜索状态中才会显示。 */
+     display: none;
+ }
+ /* 对取消按钮的控制 */
+ .search.on-focus > .search-form > .search-cancel{
+     display: block;
+ }
+
+/* 搜索图标 */
+/* 选择器的层级有些长了，所以这里直接使用后代选择器来处理最里层元素的样式 */
+.search .search-icon{
+    position: absolute;
+    height: .8rem;
+    line-height: .8rem;
+    font-size: .7rem;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: #ccc;
+}
+
+/* 输入框样式 */
+.search .search-input{
+    /* 因为它宽度是 100% 的情况下还需要有内边距，所以直接使用了“box-sizing: border-box;”来处理盒子的模型就可以了。 */
+    box-sizing: border-box;
+    width: 100%;
+    height: 1.6rem;
+    border: none;
+    font-size: .8rem;
+    /* 输入框左侧需要有 1.5rem 的内边距，用来让出搜索图标的位置 */
+    padding-left: 1.5rem;
+    background: #fff;
+    border-radius: .2rem;
+}
+
+/* 清空按钮的样式 */
+.search .search-clear{
+    position: absolute;
+    height: .8rem;
+    line-height: .8rem;
+    width: .8rem;
+    font-size: .6rem;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    right: 1rem;
+    border-radius: 50%;
+    color: #fff;
+    background: #ccc;
+    display: none;
+}
+/* 对清空按钮的控制 */
+/* 使用了一个 :valid 选择器来判断和它相邻的输入框的状态。解析如下：
+这个 :valid是和 input 中的“required”属性对应的，input 元素有内容时“required”验证条件就会通过，
+这时候 :valid 选择器就会选中这个 input，从而后面的兄弟选择器才会选中 .tt-search-clear 元素 
+这种用法就可以直接使用 CSS 来控制清空按钮的显示了，省去了 JS 的工作*/
+.search.on-focus .search-input:valid + .search-clear{
+    display: block;
+}
+
+/* 搜索建议 */
+/* 搜索建议部分只有在搜索状态中才会出现，并且按着默认的布局排列就好，
+所以我们只需要控制 .search-suggest 这个容器的显示逻辑 */
+.search > .search-suggest{
+    display: none;
+}
+.search.on-focus > .search-suggest{
+    display: block;
+}
+/* 搜索建议内容 */
+.search > .search-suggest > .suggest-item{
+    padding-left: 1rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: .8rem;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+/* PS：BUG解决 */
+/* 在iPhone出现搜索框被遮挡，原因：
+因为 .tt-content 有“overflow-y: auto;”属性，而现在 .tt-content 的高度只有里面 p 标签撑开的那么高。
+在一般的浏览器里，“overflow: auto”属性对固定定位元素默认是 visible 的，但在 iPhone 的浏览器里，auto 对固定定位元素的表现是hidden的，所以就会遮住 .tt-search 一部分内容。
+
+为了解决这个问题，我们只要把 .tt-content 内容区的高度撑开就可以了，
+所以我们要在 html、body 和 .tt-content 上面都加上“height:100%”样式即可。
+这里我们要在 /src/common.css 里的 html 和 body 选择器的样式里加上“height:100%”，
+然后再在 /src/content.css 里 .tt-content 选择器的样式里也加上“height:100%”，这样问题就解决了。 */

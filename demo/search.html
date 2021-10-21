@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../src/emmanuel-ui.css">
+    <title>带suggest的搜索框</title>
+</head>
+<body>
+    <div class="header">
+        <div class="left"><i class="fa fa-chevron-left"></i> </div>
+        <div class="title">搜索框</div>
+        <div class="right"><i class="fa fa-ellipsis-h"></i></div>
+    </div>
+    <div class="navbar">
+        <a class="navbar-item"><i class="fa fa-home icon"></i><span class="name">首页</span></a>
+        <a class="navbar-item"><i class="fa fa-list icon"></i><span class="name">分类</span></a>
+        <a class="navbar-item"><i class="fa fa-search icon"></i><span class="name">发现</span></a>
+        <a class="navbar-item"><i class="fa fa-user-o icon"></i><span class="name">我的</span></a>
+    </div>
+    <div class="content">
+        <!-- 带suggest的搜索框 -->
+        <div class="search">
+            <!-- 搜索框 -->
+            <!-- 使用了 form 做了最外层的容器，这是因为想在键盘上直接提交搜索操作 -->
+            <!-- 也就是带有 action 属性的表单里包含的 input 元素，这样的结构就会被输入法认定为表单的功能，会在键盘上显示出“前往”的按钮 -->
+            <form  class="search-form" action="#">
+                <div class="search-input-wrap">
+                    <i class="fa fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="搜索" autocomplete="off" required />
+                    <i class="fa fa-close search-clear"></i>
+                </div>
+                <span class="search-cancel">取消</span>
+            </form>
+            <!-- 搜索建议 -->
+            <ul class="search-suggest">
+                <li class="suggest-item">手机</li>
+                <li class="suggest-item">iPhone XS Max</li>
+                <li class="suggest-item">华为P40</li>
+                <li class="suggest-item">小米 MIX3</li>
+                <li class="suggest-item">诺基亚1110</li>
+            </ul>
+        </div>
+        <p>内容区</p>
+    </div>
+    <script>
+        window.onload = function(){
+            let Search = document.querySelector('.search');
+            let input = document.querySelector('.search-input');
+            let cancel = document.querySelector('.search-cancel');
+            let clear = document.querySelector('.search-clear');
+            // 输入框被选中，进入搜索模式
+            input.addEventListener('focus',()=>{
+                Search.classList.add('on-focus');
+            });
+            // 点击取消，返回正常模式
+            cancel.addEventListener('click',()=>{
+                Search.classList.remove('on-focus');
+            });
+            // 点击清空，清楚内容
+            clear.addEventListener('click',()=>{
+                input.value = '';
+            });
+        }
+    </script>
+</body>
+</html>
