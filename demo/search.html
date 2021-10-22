@@ -56,6 +56,7 @@
             // 点击取消，返回正常模式
             cancel.addEventListener('click',()=>{
                 Search.classList.remove('on-focus');
+                input.value='';
             });
             // 点击清空，清楚内容
             clear.addEventListener('click',()=>{

@@ -1,0 +1,18 @@
+/* 列表的样式 */
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-10-22 
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-10-22
+ */
+
+ /* 列表的样式 */
+
+ .list > .list-item{
+     position: relative;
+     padding: .5rem 1rem;
+     font-size: .8rem;
+     background: #fff;
+     color: #333;
+     border-bottom: 1px solid #eee;
+ }

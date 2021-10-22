@@ -27,3 +27,5 @@
 @import './modal.css';
 /* 搜索框组件样式 */
 @import './search.css';
+/* 列表组件样式 */
+@import './list.css';
