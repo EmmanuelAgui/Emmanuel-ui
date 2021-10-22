@@ -9,6 +9,8 @@
  /* 列表的样式 */
 
  .list > .list-item{
+     display: flex;
+     /* 只需要以下这段就可实现简单列表样式 */
      position: relative;
      padding: .5rem 1rem;
      font-size: .8rem;
@@ -16,3 +18,80 @@
      color: #333;
      border-bottom: 1px solid #eee;
  }
+
+ /* 列表项的图片容器 */
+ .list .item-img-wrap{
+     flex: 0 0 5rem;
+     height: 5rem;
+     margin-right: .5rem;
+     border-radius: .2rem;
+     overflow: hidden;
+ }
+
+ /* 列表图片 */
+ .list .item-img-wrap > .item-img{
+     width: 100%;
+     height: 100%;
+ }
+
+ /* 列表项的文字区域 */
+ .list .item-content-wrap{
+     position: relative;
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+ }
+
+ /* 列表项的标题 */
+ .list .item-content-wrap > .item-title{
+     /* height和line-height结合overflow可实现多行文本超出部分隐藏的功能，只是没有省略号。兼容适配非-webkit内核的浏览器 */
+     height: 2rem;
+     line-height: 1rem;
+     font-size: .8rem;
+     font-weight: normal;
+     overflow: hidden;
+     /* 要两行的高度，并且超长的时候要截断，这里我们会使用下面这个固定的搭配来实现多行的折行截断效果 */
+     display:-webkit-box;
+     -webkit-line-clamp: 2;
+     -webkit-box-orient: vertical;
+ }
+
+
+ /* 列表项的价格字段 */
+ .list .item-content-wrap > .item-price{
+     font-size: .8rem;
+     font-weight: 600;
+     color: #e0652f;
+ }
+ /* 列表项的描述字段 */
+ .list .item-content-wrap > .item-desc{
+     color: #999;
+     font-size: .6rem;
+ }
+
+
+ /* 方形布局 */
+ .list.square{
+     display: flex;
+ }
+
+ .list.square > .list-item{
+    flex-direction: column;
+    width: 50%;
+}
+
+.list.square > .list-item + .list-item{
+    border-left: 1px solid #eee;
+}
+
+/* 方形布局下图片容器 */
+.list.square .item-img-wrap{
+    flex: none;
+    height: auto;
+}
+
+/*  */
+.list.square .item-content-wrap > .item-title{
+    display: none;
+}
