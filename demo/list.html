@@ -21,10 +21,10 @@
                 <li class="list-item">...</li>
             </ul>
         </div>
-        <h1 class="panel-title">复杂列表</h1>
+        <h1 class="panel-title"><span>复杂列表</span><i class="fa fa-th-large toggle"></i></h1>
         <div class="panel-body no-padding">
             <!-- 复杂列表 -->
-            <ul class="list square">
+            <ul class="list complex-list">
                 <li class="list-item">
                     <div class="item-img-wrap">
                         <img src="../img/list-img.jpg" alt="机械键盘" class="item-img">
@@ -45,8 +45,69 @@
                         <p class="item-desc">已售1834件</p>
                     </div>
                 </li>
+                <li class="list-item">
+                    <div class="item-img-wrap">
+                        <img src="../img/list-img.jpg" alt="机械键盘" class="item-img">
+                    </div>
+                    <div class="item-content-wrap">
+                        <h1 class="item-title">斐尔可 机械键盘87游戏无线圣手忍者二代红轴茶青黑蓝牙双模的发送到发送到发送到发送到舒服舒服</h1>
+                        <p class="item-price">￥998</p>
+                        <p class="item-desc">已售1834件</p>
+                    </div>
+                </li>
+                <li class="list-item">
+                    <div class="item-img-wrap">
+                        <img src="../img/list-img.jpg" alt="机械键盘" class="item-img">
+                    </div>
+                    <div class="item-content-wrap">
+                        <h1 class="item-title">斐尔可 机械键盘87游戏无线圣手忍者二代红轴茶青黑蓝牙双模</h1>
+                        <p class="item-price">￥998</p>
+                        <p class="item-desc">已售1834件</p>
+                    </div>
+                </li>
+                <li class="list-item">
+                    <div class="item-img-wrap">
+                        <img src="../img/list-img.jpg" alt="机械键盘" class="item-img">
+                    </div>
+                    <div class="item-content-wrap">
+                        <h1 class="item-title">斐尔可 机械键盘87游戏无线圣手忍者二代红轴茶青黑蓝牙双模的发送到发送到发送到发送到舒服舒服</h1>
+                        <p class="item-price">￥998</p>
+                        <p class="item-desc">已售1834件</p>
+                    </div>
+                </li>
+                <li class="list-item">
+                    <div class="item-img-wrap">
+                        <img src="../img/list-img.jpg" alt="机械键盘" class="item-img">
+                    </div>
+                    <div class="item-content-wrap">
+                        <h1 class="item-title">斐尔可 机械键盘87游戏无线圣手忍者二代红轴茶青黑蓝牙双模</h1>
+                        <p class="item-price">￥998</p>
+                        <p class="item-desc">已售1834件</p>
+                    </div>
+                </li>
+                <li class="list-item">
+                    <div class="item-img-wrap">
+                        <img src="../img/list-img.jpg" alt="机械键盘" class="item-img">
+                    </div>
+                    <div class="item-content-wrap">
+                        <h1 class="item-title">斐尔可 机械键盘87游戏无线圣手忍者二代红轴茶青黑蓝牙双模</h1>
+                        <p class="item-price">￥998</p>
+                        <p class="item-desc">已售1834件</p>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
+    <script>
+        const toggleBtn = document.querySelector('.toggle');
+        toggleBtn.addEventListener('click',()=>{
+            const changeSquare = toggleBtn.classList.contains('fa-th-large');
+            const changeList = toggleBtn.classList.contains('fa-list');
+            const classList = toggleBtn.classList;
+            changeSquare?classList.replace('fa-th-large','fa-list'):changeList?classList.replace('fa-list','fa-th-large'):classList.add('fa-th-large');
+            const listEle = document.querySelector('.complex-list');
+            changeSquare?listEle.classList.add('square'):listEle.classList.remove('square');
+        })
+    </script>
 </body>
 </html>

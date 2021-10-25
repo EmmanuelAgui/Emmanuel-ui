@@ -74,24 +74,32 @@
  /* 方形布局 */
  .list.square{
      display: flex;
+     flex-wrap: wrap;
  }
 
  .list.square > .list-item{
     flex-direction: column;
-    width: 50%;
+    flex: 0 1 50%;
+    box-sizing: border-box;
 }
 
-.list.square > .list-item + .list-item{
-    border-left: 1px solid #eee;
+.list.square > .list-item{
+    border-right: 1px solid #eee;
 }
 
 /* 方形布局下图片容器 */
 .list.square .item-img-wrap{
     flex: none;
     height: auto;
+    margin-right: 0;
 }
 
-/*  */
+/* 方形布局下隐藏title */
 .list.square .item-content-wrap > .item-title{
     display: none;
+}
+
+/* 切换布局按钮 */
+.toggle{
+    line-height: 1.8rem;
 }

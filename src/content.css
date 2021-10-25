@@ -38,9 +38,11 @@
 /* Panel 标题 */
 /* 我们这里用了后代选择器，而不是子代选择器，是因为Panel不一定直接放在 .tt-content 下。 */
 .content .panel-title{
+    display: flex;
+    justify-content: space-between;
     height: 1.8rem;
     line-height: 1.8rem;
-    padding-left: 1rem;
+    padding: 0 1rem;
     color: #aaa;
     border-top: 1px solid #eee;
     font-size: 14px;
