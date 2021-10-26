@@ -14,12 +14,6 @@
  }
 /* 网格中的格子 */
  .grid > .grid-item{
-     /* width: 32%;
-     height: 32%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     border: 1px solid #eee; */
      position: relative;
      /* 这个格子的容器 .tt-grid 上加了 “flex-wrap: wrap;” 属性，
      然后在格子上加入 “flex: 1 1 33%;” 属性即可完成格子的排布要求，
@@ -58,6 +52,8 @@
 }
 /* 不需要边框时取消格子上所有的边框 */
 .grid.no-border > .grid-item{
+    /* 选择器的优先级相同了，而 no-border 样式的语句在前面，无法覆盖后面 .tt-grid-4 里面 border 的样式。
+    为了解决这个问题，我们可以在，no-border 的样式里加上 “!important” 来解决这个问题。 */
     border: none !important;
 }
 
@@ -87,6 +83,6 @@
     flex-basis: 20%;
     padding: .6rem 0;
 }
-.grid.grid-5 .grid-item:nth-child((5n)){
+.grid.grid-5 .grid-item:nth-child(5n){
     border-right: none;
 }
