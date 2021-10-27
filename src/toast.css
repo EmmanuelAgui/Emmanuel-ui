@@ -9,7 +9,7 @@
  .toast{
      position: fixed;
      width: 7rem;
-     top: 45%;
+     bottom: 7%;
      transform: translateY(-40%);
      left: 0;
      right: 0;
