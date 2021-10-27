@@ -24,7 +24,8 @@
 /* 按钮样式 */
 @import './button.css';
 /* 模态框组件样式 */
-@import './modal.css';
+/* @import './modal.css'; */
+@import './modal-transition.css';
 /* 搜索框组件样式 */
 @import './search.css';
 /* 列表组件样式 */

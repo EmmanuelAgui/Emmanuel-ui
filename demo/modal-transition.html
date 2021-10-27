@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../src/emmanuel-ui.css">
+    <title>模态框</title>
+</head>
+<body>
+    <div class="header">
+        <div class="left"><i class="fa fa-chevron-left"></i> </div>
+        <div class="title">基础模态框</div>
+        <div class="right"><i class="fa fa-ellipsis-h"></i></div>
+    </div>
+    <div class="navbar">
+        <a class="navbar-item"><i class="fa fa-home icon"></i><span class="name">首页</span></a>
+        <a class="navbar-item"><i class="fa fa-list icon"></i><span class="name">分类</span></a>
+        <a class="navbar-item"><i class="fa fa-search icon"></i><span class="name">发现</span></a>
+        <a class="navbar-item"><i class="fa fa-user-o icon"></i><span class="name">我的</span></a>
+    </div>
+    <div class="content">
+        <a class="btn" id="show-modal">显示弹窗</a>
+    </div>
+    <!-- 基础模态框 -->
+    <!-- <div class="modal" id="modal">
+        <div class="mask"></div>
+        <div class="modal-wrap">
+            <div class="modal-body">
+                <p>您的会员即将到期，请及时续费，以免影响您的权益。</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn">下次再说</a>
+                <a class="btn">立即续费</a>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- 海报样式模态框 -->
+    <div class="modal" id="modal">
+        <div class="mask"></div>
+        <div class="modal-wrap">
+            <div class="modal-body no-padding">
+                <img class="modal-img" src="../img/modal-img-test.jpg" alt="">
+            </div>
+            <i id="close-modal" class="fa fa-close modal-close"></i>
+        </div>
+    </div>
+    <script>
+        const openBtn = document.querySelector('#show-modal');
+        const closeBtn = document.querySelector('#close-modal');
+        const modalEle = document.querySelector('#modal');
+        const openModal = ()=>{
+            modalEle.classList.add('show');
+        }
+        const closeModal = ()=>{
+            modalEle.classList.remove('show');
+        }
+        openBtn.addEventListener('click',openModal);
+        closeBtn.addEventListener('click',closeModal);
+        modalEle.addEventListener('click',(el)=>{
+            el.stopPropagation();
+            if(el.target.className === 'mask'){
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
