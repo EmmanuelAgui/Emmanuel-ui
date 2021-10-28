@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../src/emmanuel-ui.css">
+    <title>ActionSheet弹出式菜单</title>
+</head>
+<body>
+    <div class="content">
+        <h1 class="panel-title">ActionSheet弹出式菜单</h1>
+        <div class="panel-body">
+            <a class="btn" id="js-show">显示弹出式菜单</a>
+        </div>
+    </div>
+    <div class="action-sheet">
+        <div class="mask"></div>
+        <div class="action-sheet-wrap">
+            <div class="action-sheet-header">
+                <h1 class="action-sheet-title">你需要做什么操作？</h1>
+            </div>
+            <div class="action-sheet-body">
+                <a class="action-sheet-menu">收藏</a>
+                <a class="action-sheet-menu">关注</a>
+                <a class="action-sheet-menu">分享给好友</a>
+            </div>
+            <div class="action-sheet-footer">
+                <a class="action-sheet-menu" id="js-close">取消</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload=()=>{
+            // 弹出菜单
+            document.querySelector('#js-show').onclick = (e)=>{
+                document.querySelector('.action-sheet').classList.add('show');
+            }
+            // 收回菜单
+            document.querySelector('#js-close').onclick = (e)=>{
+                document.querySelector('.action-sheet').classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -38,3 +38,5 @@
 @import './loading.css';
 /* Toast弹出提示组件 */
 @import './toast.css';
+/* actionSheet可选菜单 */
+@import './action-sheet.css';

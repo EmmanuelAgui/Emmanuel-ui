@@ -1,0 +1,87 @@
+/* 弹出菜单容器 */
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-10-27
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-10-27
+ */
+
+ /* 弹出菜单容器，默认隐藏在屏幕的下面 */
+ .action-sheet > .action-sheet-wrap{
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     max-width: 640px;
+     margin: auto;
+     background: #eee;
+     transition: transform .3s ease;
+     transform: translateY(100%);
+     z-index: 301;
+ }
+ /* 菜单弹出时，改变容器位移 */
+ .action-sheet.show .action-sheet-wrap{
+     transform: translateY(0);
+ }
+
+ /* 当蒙版出现的时候我们把它的 pointer-events 属性值设置成“auto”来挡住内容区的元素；
+ 当蒙版透明的时候把 pointer-events 属性值设置成“none”，
+ 就能让蒙版不再阻挡内容区的操作，变成真正透明的元素了。 */
+
+ /* 默认隐藏蒙版 */
+ .action-sheet > .mask{
+     opacity: 0;
+     /* 屏蔽元素的点击事件 */
+     pointer-events: none;
+     transition:  opacity .3s ease;
+ }
+ /* 菜单弹出的时候显示蒙版 */
+ .action-sheet.show > .mask{
+     opacity: 1;
+     pointer-events: auto;
+ }
+
+ /* 弹出菜单头部 */
+ .action-sheet .action-sheet-header{
+     padding: 0 2rem;
+     display: flex;
+     align-items: center;
+     text-align: center;
+     height: 3rem;
+     background-color: #fff;
+ }
+ /* 头部标题，用来描述菜单作用 */
+ .action-sheet .action-sheet-header > .action-sheet-title{
+     flex: 1;
+     font-size: .7rem;
+     line-height: 1rem;
+     font-weight: normal;
+     color: rgba(0, 0, 0, .3);
+     overflow: hidden;
+     display: -webkit-box;
+     -webkit-line-clamp: 2;
+     -webkit-box-orient: vertical;
+ }
+ /* 中间主要内容区 */
+ .action-sheet .action-sheet-body{
+     border-top: 1px solid rgba(0, 0, 0, .1);
+     background-color: #fff;
+ }
+ /* 菜单尾部，通常用来放取消按钮 */
+ .action-sheet .action-sheet-footer{
+     margin-top: .3rem;
+     background-color: #fff;
+ }
+ /* 每个菜单项 */
+ .action-sheet .action-sheet-menu{
+     display: block;
+     height: 2.8rem;
+     line-height: 2.8rem;
+     font-size: .8rem;
+     text-align: center;
+ }
+ /* 菜单项的边框控制 */
+ .action-sheet .action-sheet-menu + .action-sheet-menu{
+     display: block;
+     border-top: 1px solid rgba(0, 0, 0, .1);
+ }
