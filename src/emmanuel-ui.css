@@ -40,3 +40,5 @@
 @import './toast.css';
 /* actionSheet可选菜单 */
 @import './action-sheet.css';
+/* article文章组件样式 */
+@import './article.css'

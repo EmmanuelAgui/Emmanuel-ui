@@ -1,0 +1,72 @@
+/* 文章组件 */
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-10-29
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-10-29
+ */
+
+ /* 文章组件 */
+ .article{
+     position: relative;
+     padding: 1rem;
+     margin-bottom: 1rem;
+     font-size: .8rem;
+     line-height: 1.6rem;
+     background-color: #fff;
+     border-bottom: 1px solid #eee;
+     color: #333;
+ }
+ /* 文章被折叠的情况 */
+ .article.fold{
+     /* 折叠的时候的高度最高设置成100%，这样屏幕稍微往下滑动一点就能看到文本的底边了。
+     这里用的 max-height 而没有用 height 是因为当文本内容占不满整屏高度的话，也不会留出空白。 */
+     max-height: 100%;
+     overflow: hidden;
+ }
+
+/* 展开按钮：渐变 */
+.article .article-unfold-btn{
+    display: none;
+    position: absolute;
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+    bottom:0;
+    height: 5rem;
+    padding-top: 3rem;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #e0652f;
+    background: linear-gradient(180deg,rgba(255,255,255,0) 0,#fff 100%);
+}
+/* 控制展开按钮的显示 */
+.article.fold .article-unfold-btn{
+    display: block;
+}
+
+/* 文章大标题 */
+.article .article-title{
+    margin: .5rem 0 1rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+/* 文章信息，用来放作者、创作时间等 */
+.article .article-info{
+    font-size: .8rem;
+    color: #aaa;
+}
+/* 文章小标题 */
+.article .article-subtitle{
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+/* 文章段落 */
+.article .article-paragraph{
+    margin: .5rem 0 1rem;
+}
+/* 文章图片 */
+.article .article-img{
+    max-width: 100%;
+    margin: auto;
+}
