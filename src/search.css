@@ -17,6 +17,7 @@
     max-width: 640px;
     margin: 0 auto;
     background: #f8f8f8;
+    z-index: 110;
  }
 
  /* 在输入状态下，希望 .tt-search 容器遮盖住整个内容区（ .tt-content 覆盖的区域）。 

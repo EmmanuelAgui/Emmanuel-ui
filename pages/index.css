@@ -1,0 +1,37 @@
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-11-02
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-11-02
+ */
+
+ /* 缩小网格的高度 */
+ .page-index .grid > .grid-item{
+     padding: .5rem 0;
+ }
+ 
+ /* 网格导航的颜色设置 */
+ .page-index .grid > .grid-item.item-1 > .grid-icon{
+     color: #f93c32;
+ }
+ .page-index .grid > .grid-item.item-2 > .grid-icon{
+     color: #1dbdd4;
+ }
+ .page-index .grid > .grid-item.item-3 > .grid-icon{
+     color: #eb1d57;
+ }
+ .page-index .grid > .grid-item.item-4 > .grid-icon{
+     color: #00bb4b;
+ }
+ .page-index .grid > .grid-item.item-5 > .grid-icon{
+     color: #fd9707;
+ }
+ .page-index .grid > .grid-item.item-6 > .grid-icon{
+     color: #fc5024;
+ }
+ .page-index .grid > .grid-item.item-7 > .grid-icon{
+     color: #9a00b0;
+ }
+ .page-index .grid > .grid-item.item-8 > .grid-icon{
+     color: #f3443c;
+ }

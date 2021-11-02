@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../dist/emmanuel-ui.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>首页</title>
+</head>
+<body class="page-index">
+    <!-- 首页 -->
+    <div class="navbar">
+        <a class="navbar-item active" >
+            <i class="fa fa-home icon"></i>
+            <span class="name">首页</span>
+        </a>
+        <a class="navbar-item" href="./list.html">
+            <i class="fa fa-search icon"></i>
+            <span class="name">发现</span>
+        </a>
+        <a class="navbar-item" href="./mine.html">
+            <i class="fa fa-user-o icon"></i>
+            <span class="name">我的</span>
+        </a>
+    </div>
+    <!-- content -->
+    <div class="content">
+        <!-- 带suggest的搜索框 -->
+        <div class="search">
+        <!-- <div class="search on-focus"></div> -->
+            <!-- 搜索框 -->
+            <form action="#" class="search-form">
+                <div class="search-input-wrap">
+                    <i class="fa fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="搜索" autocomplete="off" required />
+                    <i class="fa fa-close search-clear"></i>
+                </div>
+                <span class="search-cancel">取消</span>
+            </form>
+            <!-- 搜索建议 -->
+            <ul class="search-suggest">
+                <li class="suggest-item">手机</li>
+                <li class="suggest-item">iPhone XS Max</li>
+                <li class="suggest-item">华为P40</li>
+                <li class="suggest-item">小米 MIX3</li>
+                <li class="suggest-item">诺基亚1110</li>
+            </ul>
+        </div>
+        <!-- 文章分类 -->
+        <div class="grid grid-4 no-border yp-category">
+            <a href="./list.html" class="grid-item item-1">
+                <i class="fa fa-female grid-icon"></i>
+                <p class="grid-label">女装</p>
+            </a>
+            <a href="./list.html" class="grid-item item-2">
+                <i class="fa fa-book grid-icon"></i>
+                <p class="grid-label">图书</p>
+            </a>
+            <a href="./list.html" class="grid-item item-3">
+                <i class="fa fa-briefcase grid-icon"></i>
+                <p class="grid-label">箱包</p>
+            </a>
+            <a href="./list.html" class="grid-item item-4">
+                <i class="fa fa-diamond grid-icon"></i>
+                <p class="grid-label">珠宝首饰</p>
+            </a>
+            <a href="./list.html" class="grid-item item-5">
+                <i class="fa fa-soccer-ball-o grid-icon"></i>
+                <p class="grid-label">体育用品</p>
+            </a>
+            <a href="./list.html" class="grid-item item-6">
+                <i class="fa fa-tv grid-icon"></i>
+                <p class="grid-label">电视</p>
+            </a>
+            <a href="./list.html" class="grid-item item-7">
+                <i class="fa fa-mobile-phone grid-icon"></i>
+                <p class="grid-label">手机</p>
+            </a>
+            <a href="./list.html" class="grid-item item-8">
+                <i class="fa fa-print grid-icon"></i>
+                <p class="grid-label">打印设备</p>
+            </a>
+        </div>
+    </div>
+    <script>
+        window.onload=()=>{
+            let Search = document.querySelector('.search');
+            let input = document.querySelector('.search-input');
+            let cancel = document.querySelector('.search-cancel');
+            let clear = document.querySelector('.search-clear');
+            // 输入框被选中，进入搜索模式
+            input.addEventListener('focus',()=>{
+                Search.classList.add('on-focus');
+            });
+            // 点击取消，返回正常模式
+            cancel.onclick=()=>{
+                Search.classList.remove('on-focus');
+                input.value = '';
+            };
+            // 点击清空，清除内容
+            clear.onclick=()=>{
+                input.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
