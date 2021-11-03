@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../dist/emmanuel-ui.min.css">
+    <link rel="stylesheet" href="./list.css">
+    <title>发现</title>
+</head>
+<body class="page-list">
+    <!-- 底部导航 -->
+    <div class="navbar">
+        <a href="./index.html" class="navbar-item">
+            <i class="fa fa-home icon"></i>
+            <span class="name">首页</span>
+        </a>
+        <a class="navbar-item active">
+            <i class="fa fa-search icon"></i>
+            <span class="name">发现</span>
+        </a>
+        <a href="./mine.html" class="navbar-item">
+            <i class="fa fa-user-o icon"></i>
+            <span class="name">我的</span>
+        </a>
+    </div>
+    <!-- 内容区 -->
+    <div class="content">
+        <!-- 带suggest的搜索框 -->
+        <div class="search">
+            <!-- 搜索框 -->
+            <form action="#" class="search-form">
+                <div class="search-input-wrap">
+                    <i class="fa fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="搜索" required>
+                    <i class="fa fa-close search-clear"></i>
+                </div>
+                <span class="search-cancel">取消</span>
+            </form>
+            <!-- 搜索建议 -->
+            <ul class="search-suggest">
+                <li class="suggest-item">手机</li>
+                <li class="suggest-item">iPhone XS Max</li>
+                <li class="suggest-item">华为P40</li>
+                <li class="suggest-item">小米 MIX3</li>
+                <li class="suggest-item">诺基亚1110</li>
+            </ul>
+        </div>
+        <!-- 排序功能区 -->
+        <div class="sort-wrap">
+            <a class="btn sort-btn active">
+                收藏次数
+                <!-- 没有排序时使用的图标 -->
+                <!-- <i class="fa fa-sort"></i> -->
+                <!-- 升序排列时使用的图标 -->
+                <i class="fa fa-sort-asc"></i>
+                <!-- 降序排列时使用的图标 -->
+                <!-- <i class="fa fa-sort-desc"></i> -->
+            </a>
+            <a class="btn sort-btn">
+                发布时间
+                <i class="fa fa-sort"></i>
+            </a>
+        </div>
+        <!-- 列表内容 -->
+        <div class="panel-body no-padding">
+            <div class="loading-inline">
+                <span class="loading-info">
+                    <i class="fa fa-circle-o-notch fa-spin loading-icon"></i>
+                    用力加载中
+                </span>
+            </div>
+            <!-- 文章列表 -->
+            <div class="list">
+                <a href="./article.html" class="list-item">
+                    <div class="item-img-wrap">
+                        <img src="img/MyLord.jpg" alt="MyLord" class="item-img">
+                    </div>
+                    <div class="item-content-wrap">
+                        <h1 class="item-title">诗篇16 | 你是我的主，我的好处不在你以外。</h1>
+                        <p class="item-desc">发布时间：2021-11-03</p>
+                        <p class="item-desc">阅读1200次 | 收藏1200次</p>
+                    </div>
+                </a>
+                <a href="./article.html" class="list-item">
+                    <div class="item-img-wrap">
+                        <img src="img/MyLord.jpg" alt="MyLord" class="item-img">
+                    </div>
+                    <div class="item-content-wrap">
+                        <h1 class="item-title">诗篇16 | 你是我的主，我的好处不在你以外。</h1>
+                        <p class="item-desc">发布时间：2021-11-03</p>
+                        <p class="item-desc">阅读1200次 | 收藏1200次</p>
+                    </div>
+                </a>
+                <a href="./article.html" class="list-item">
+                    <div class="item-img-wrap">
+                        <img src="img/MyLord.jpg" alt="MyLord" class="item-img">
+                    </div>
+                    <div class="item-content-wrap">
+                        <h1 class="item-title">诗篇16 | 你是我的主，我的好处不在你以外。</h1>
+                        <p class="item-desc">发布时间：2021-11-03</p>
+                        <p class="item-desc">阅读1200次 | 收藏1200次</p>
+                    </div>
+                </a>
+                <a href="./article.html" class="list-item">
+                    <div class="item-img-wrap">
+                        <img src="img/MyLord.jpg" alt="MyLord" class="item-img">
+                    </div>
+                    <div class="item-content-wrap">
+                        <h1 class="item-title">诗篇16 | 你是我的主，我的好处不在你以外。</h1>
+                        <p class="item-desc">发布时间：2021-11-03</p>
+                        <p class="item-desc">阅读1200次 | 收藏1200次</p>
+                    </div>
+                </a>
+            </div>
+            <div class="loading-inline">
+                <span class="loading-info">
+                    上拉加载更多
+                    <i class="fa fa-long-arrow-up fa-vibrate-y loading-icon"></i>
+                </span>
+            </div>
+            <div class="loading-inline">
+                <span class="loading-info">我可是有底线的</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload=()=>{
+            let Search = document.querySelector('.search');
+            let input = document.querySelector('.search-input');
+            let cancel = document.querySelector('.search-cancel');
+            let clear = document.querySelector('.search-clear');
+            // 输入框被选中，进入搜索模式
+            input.addEventListener('focus',()=>{
+                Search.classList.add('on-focus');
+            });
+            // 点击取消，返回正常模式
+            cancel.onclick=()=>{
+                Search.classList.remove('on-focus');
+                input.value = '';
+            };
+            // 点击清空，清除内容
+            clear.onclick=()=>{
+                input.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
