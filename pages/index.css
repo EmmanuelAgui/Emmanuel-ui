@@ -5,6 +5,11 @@
  * @Last Modified time: 2021-11-02
  */
 
+ /* 调整间距 */
+ .page-index .yp-category{
+     margin-bottom: .5rem;
+ }
+
  /* 缩小网格的高度 */
  .page-index .grid > .grid-item{
      padding: .5rem 0;

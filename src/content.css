@@ -49,6 +49,13 @@
     font-weight: normal;
 }
 
+/* 标题导航 */
+.content .panel-title > .panel-link{
+    float: right;
+    margin-left: 1rem;
+    color: #aaa;
+}
+
 /* Panel内容区 */
 .content .panel-body{
     position: relative;
