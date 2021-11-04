@@ -1,0 +1,23 @@
+/*
+ * @Author: EmmanuelAgui 
+ * @Date: 2021-11-04
+ * @Last Modified by: EmmanuelAgui 
+ * @Last Modified time: 2021-11-04
+ */
+ /* 文章详情页 */
+ /* 喜欢功能 */
+ .page-article .article-info > .like{
+     float: right;
+ }
+ /* 更改激活状态下喜欢按钮的颜色 */
+ .page-article .article-info > .like.active{
+     color: #09bb07;
+ }
+ /* 非喜欢状态，使用空心的图标 */
+ .page-article .article-info > .like:not(.active) > .like-icon{
+     display: none;
+ }
+ /* 激活状态下使用实心的图标 */
+ .page-article .article-info > .like.active > .dislike-icon{
+     display: none;
+ }
