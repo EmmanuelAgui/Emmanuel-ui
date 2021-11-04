@@ -67,6 +67,7 @@
 }
 /* 文章图片 */
 .article .article-img{
+    display: block;
     max-width: 100%;
     margin: auto;
 }

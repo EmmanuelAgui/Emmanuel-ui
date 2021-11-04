@@ -23,12 +23,12 @@
      color: #09bb07;
  }
  .page-list .sort-wrap > .sort-btn.active > .fa-sort-desc{
-     position: absolute;
-     margin-left: .2rem;
+     position: relative;
+     bottom: .2rem;
  }
  .page-list .sort-wrap > .sort-btn.active > .fa-sort-asc{
-    position: absolute;
-    margin-left: .2rem;
+    position: relative;
+    top: .2rem;
 }
  .page-list .sort-wrap > .sort-btn + .sort-btn{
      border-left: 1px solid #ddd;
