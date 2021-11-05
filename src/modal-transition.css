@@ -8,9 +8,11 @@
 
  /* 使用visibility控制弹窗的显示 */
  .modal{
-    visibility: hidden;
+    /* opacity: 0; */
+    visibility: collapse;
  }
  .modal.show{
+    /* opacity: 1; */
     visibility: visible;
  }
 
