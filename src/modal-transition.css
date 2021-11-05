@@ -5,6 +5,15 @@
  * @Last Modified by: EmmanuelAgui 
  * @Last Modified time: 2021-10-27
  */
+
+ /* 使用visibility控制弹窗的显示 */
+ .modal{
+    visibility: hidden;
+ }
+ .modal.show{
+    visibility: visible;
+ }
+
  .modal > * {
      /* 默认隐藏 */
      /* 关闭按钮的位置是在外层容器边缘以外的，
