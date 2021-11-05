@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../dist/emmanuel-ui.min.css">
+    <link rel="stylesheet" href="./mine.css">
+    <title>个人中心</title>
+</head>
+<body class="page-mine">
+    <div class="navbar">
+        <a href="./index.html" class="navbar-item">
+            <i class="fa fa-home icon"></i>
+            <span class="name">首页</span>
+        </a>
+        <a href="./list.html" class="navbar-item">
+            <i class="fa fa-search icon"></i>
+            <span class="name">发现</span>
+        </a>
+        <a class="navbar-item active">
+            <i class="fa fa-user-o icon"></i>
+            <span class="name">我的</span>
+        </a>
+    </div>
+    <div class="content">
+        <!-- 内容区 -->
+        <!-- 用户个人信息 -->
+        <div class="panel-body user">
+            <img src="./img/MyLord.jpg" alt="用户头像" class="portrait">
+            <div class="info">
+                <h2 class="nick-name">Emmanuel</h2>
+                <p class="detail">
+                    <a href="#" class="detail-item">关注 777777</a>
+                    <a href="#" class="detail-item">收藏 7777万</a>
+                </p>
+            </div>
+        </div>
+        <!-- 菜单区域 -->
+        <div class="panel-body no-padding">
+            <div class="menu">
+                <a href="#" class="menu-item">
+                    <p class="menu-name">我的钱包</p>
+                    <i class="fa fa-chevron-right menu-icon"></i>
+                </a>
+                <a href="#" class="menu-item">
+                    <p class="menu-name">我的文章</p>
+                    <i class="fa fa-chevron-right menu-icon"></i>
+                </a>
+                <a href="#" class="menu-item">
+                    <p class="menu-name">访问统计</p>
+                    <i class="fa fa-chevron-right menu-icon"></i>
+                </a>
+                <a class="menu-item" id="show-qrcode">
+                    <p class="menu-name">我的推广码</p>
+                    <i class="fa fa-qrcode menu-value"></i>
+                    <i class="fa fa-chevron-right menu-icon"></i>
+                </a>
+                <a class="menu-item">
+                    <p class="menu-name">接收新消息</p>
+                    <input class="switch" id="receive-msg" type="checkbox" checked>
+                </a>
+            </div>
+        </div>
+        <div class="panel-body no-padding">
+            <div class="menu">
+                <a href="#" class="menu-item">
+                    <p class="menu-name">设置</p>
+                    <i class="fa fa-chevron-right menu-icon"></i>
+                </a>
+                <a href="#" class="menu-item">
+                    <p class="menu-name">意见反馈</p>
+                    <i class="fa fa-chevron-right menu-icon"></i>
+                </a>
+            </div>
+        </div>
+        <div class="panel-body no-padding">
+            <span class="btn btn-large logout-btn">退出登录</span>
+        </div>
+    </div>
+    <!-- 显示我的推广二维码 -->
+    <div id="modal" class="modal">
+        <!-- 需要打开二维码时，在modal上添加show这个类名即可 -->
+        <div class="mask"></div>
+        <div class="modal-wrap">
+            <div class="modal-body no-padding">
+                <img src="./img/modal-img-test.jpg" alt="" class="modal-img">
+            </div>
+            <i class="fa fa-close modal-close"></i>
+        </div>
+    </div>
+    <!-- 确认关闭新消息提醒 -->
+    <div id="action-sheet" class="action-sheet">
+        <!-- 需要打开action-sheet弹窗时，添加show这个类即可 -->
+        <!-- <div class="action-sheet show"></div> -->
+        <div class="mask"></div>
+        <div class="action-sheet-wrap">
+            <div class="action-sheet-header">
+                <h1 class="action-sheet-title">
+                    关闭该功能后，您将不再收到新消息的通知，确定要这样做吗？
+                </h1>
+            </div>
+            <div class="action-sheet-body">
+                <a class="action-sheet-menu ok" >关闭新消息提醒</a>
+            </div>
+            <div class="action-sheet-footer">
+                <a class="action-sheet-menu cancel">取消</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 弹窗控制
+        const showQrcodeBtn = document.querySelector('#show-qrcode');
+        const closeBtn = document.querySelector('.modal-close');
+        const modalEle = document.querySelector('#modal');
+        const openModal = () => {
+            modalEle.classList.add('show');
+        }
+        const closeModal = () => {
+            modalEle.classList.remove('show');
+        }
+        showQrcodeBtn.onclick=openModal;
+        closeBtn.onclick=closeModal;
+        modalEle.onclick=(el)=>{
+            el.stopPropagation();
+            if(el.target.className === 'mask'){
+                closeModal();
+            }
+        }
+        // action-sheet新消息提醒控制
+        const receiveMsgBtn = document.querySelector('#receive-msg');
+        const actionSheetEle = document.querySelector('#action-sheet');
+        const openActionSheet = () => {
+            actionSheetEle.classList.add('show');
+        }
+        const closeActionSheet = () => {
+            actionSheetEle.classList.remove('show');
+        }
+        // 取消接收新消息提醒
+        receiveMsgBtn.onclick = () => {
+            if(!receiveMsgBtn.checked){
+                openActionSheet();
+                actionSheetEle.querySelector('.ok').onclick=closeActionSheet;
+                actionSheetEle.querySelector('.cancel').onclick=()=>{
+                    receiveMsgBtn.checked = true;
+                    closeActionSheet();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
